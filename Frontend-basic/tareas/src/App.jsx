@@ -28,17 +28,28 @@ const [tareas, setTareas] = useState([
 
 //Elminar una tarea 
 const borrarTarea = (id)=>{
-  //console.log('borrar', id)
   setTareas(tareas.filter((tarea)=>
     tarea.id!==id
   ))
 }
 
-return (
-    <div className="container">
-      <Header />
-      <Tareas tareas={tareas} onDelete={borrarTarea}/>
-    </div>
-  )
+//marcar o desmarcar una tarea como terminada
+    const toggleTarea = (id) => {
+      console.log('terminada', id)
+      setTareas(tareas.map((tarea) => tarea.id === id ? { ...tarea, terminada: !tarea.terminada } : tarea))
+    }
+  
+  
+  
+  return (
+      <div className='container'>
+        <Header />
+        {tareas.length > 0 ? <Tareas tareas={tareas} onDelete={borrarTarea} onToggle={toggleTarea} /> : 'No hay tareas para mostrar'}
+      </div>
+    )
+
+
+
+
 }
 export default App
