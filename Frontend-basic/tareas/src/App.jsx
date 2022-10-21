@@ -39,11 +39,18 @@ function App() {
   }
 
   //agregar una tarea
+  const addTarea = (tarea)=>{
+    //console.log(tarea)
+    const id = Math.floor(Math.random()*10000)+1
+    const nuevaTarea = {id, ...tarea}
+    setTareas([...tareas, nuevaTarea])
+  }
+
 
   return (
     <div className='container'>
       <Header />
-      <AddTarea />
+      <AddTarea onAdd={addTarea}/>
       {tareas.length > 0 ? <Tareas tareas={tareas} onDelete={borrarTarea} onToggle={toggleTarea} /> : 'No hay tareas para mostrar'}
     </div>
   )

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const AddTarea = () => {
+const AddTarea = ({onAdd}) => {
 
     const [texto, setTexto] = useState('')
     const [fecha, setFecha] = useState('')
@@ -19,7 +19,10 @@ const AddTarea = () => {
             return
         }
 
-
+        onAdd({texto, fecha , terminada})
+        setTexto('')
+        setFecha('')
+        setTerminada(false)
 
     }
 
