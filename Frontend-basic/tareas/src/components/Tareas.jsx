@@ -1,4 +1,3 @@
-import React from 'react'
 import Tarea from './Tarea'
 
 const Tareas = ({ tareas, onDelete, onToggle }) => {
@@ -13,4 +12,3 @@ const Tareas = ({ tareas, onDelete, onToggle }) => {
 }
 
 export default Tareas
-
