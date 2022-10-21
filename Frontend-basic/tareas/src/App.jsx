@@ -26,10 +26,18 @@ const [tareas, setTareas] = useState([
   }
 ])
 
+//Elminar una tarea 
+const borrarTarea = (id)=>{
+  //console.log('borrar', id)
+  setTareas(tareas.filter((tarea)=>
+    tarea.id!==id
+  ))
+}
+
 return (
     <div className="container">
       <Header />
-      <Tareas tareas={tareas}/>
+      <Tareas tareas={tareas} onDelete={borrarTarea}/>
     </div>
   )
 }
