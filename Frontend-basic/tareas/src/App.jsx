@@ -5,6 +5,9 @@ import { useState } from 'react'
 
 function App() {
 
+
+  const [mostrarForm, setMostrarForm] = useState(false)
+
   const [tareas, setTareas] = useState([
     {
       id: 1,
@@ -46,11 +49,10 @@ function App() {
     setTareas([...tareas, nuevaTarea])
   }
 
-
   return (
     <div className='container'>
-      <Header />
-      <AddTarea onAdd={addTarea}/>
+      <Header onAdd={()=>setMostrarForm(!mostrarForm)} mostrarForm={mostrarForm}/>
+      {mostrarForm && <AddTarea onAdd={addTarea}/>}
       {tareas.length > 0 ? <Tareas tareas={tareas} onDelete={borrarTarea} onToggle={toggleTarea} /> : 'No hay tareas para mostrar'}
     </div>
   )
