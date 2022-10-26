@@ -4,11 +4,11 @@ import { createRoot } from 'react-dom/client'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles/index.css'
 
-import App from './components/App'
+import Countries from './components/AppDocu'
 
 const root = document.getElementById('root')
 
 createRoot(root).render(
   <StrictMode>
-    <App />
+    <Countries />
   </StrictMode>)
