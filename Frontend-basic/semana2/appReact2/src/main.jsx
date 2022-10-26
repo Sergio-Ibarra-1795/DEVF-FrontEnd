@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles/index.css'
 /* components */
 import App from './components/App'
+import Countries from './components/Countries'
 
 const root = document.getElementById('root')
 
@@ -13,4 +14,4 @@ const root = document.getElementById('root')
     <App />
   </StrictMode>
 ) */
-createRoot(root).render(<App />)
+createRoot(root).render(<Countries />)
