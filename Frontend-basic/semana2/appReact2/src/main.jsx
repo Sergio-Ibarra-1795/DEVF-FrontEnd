@@ -1,14 +1,16 @@
-import { StrictMode } from 'react'
+// import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-
+/* styles */
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles/index.css'
-
-import Countries from './components/AppDocu'
+/* components */
+import App from './components/App'
 
 const root = document.getElementById('root')
 
-createRoot(root).render(
+/* createRoot(root).render(
   <StrictMode>
-    <Countries />
-  </StrictMode>)
+    <App />
+  </StrictMode>
+) */
+createRoot(root).render(<App />)
