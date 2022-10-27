@@ -1,15 +1,21 @@
 import { useEffect, useState } from 'react'
+/* components */
+import Loading from './common/Loading'
+import Card from './common/Card'
 
-export default function Countries () {
-  const [data, setData] = useState([])
-  const [loading , setLoading] = useState(true)
-  const [error, setError] = useState('')
+function Countries () {
+  const [countries, setCountries] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+  const { signal, abort } = new AbortController()
+
+  const apiUrl = 'https://restcountries.com/v3.1/all'
 
   const getData = async () => {
     try {
-      const req = await fetch('https://restcountries.com/v3.1/all')
+      const req = await fetch(apiUrl, { signal })
       const res = await req.json()
-      setData(res)
+      setCountries(res)
     } catch (error) {
       setError(String(error))
     } finally {
@@ -19,13 +25,23 @@ export default function Countries () {
 
   useEffect(() => {
     getData()
+
+    return () => abort()
   }, [])
 
-  console.log(data)
+  if (loading) return <Loading />
 
   return (
-    <section>
-      <p>Countries</p>
+    <section className='container'>
+      <div className='row'>
+        {countries.map((country, index) => (
+          <div key={index} className='col-12 col-md-6 col-lg-3'>
+            <Card {...country} />
+          </div>
+        ))}
+      </div>
     </section>
   )
 }
+
+export default Countries
