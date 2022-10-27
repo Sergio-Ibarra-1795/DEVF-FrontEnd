@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 /* components */
 import Loading from './common/Loading'
 import Card from './common/Card'
-
+/* methods */
 import { toast } from 'react-toastify'
 
 function Countries () {
@@ -31,8 +31,8 @@ function Countries () {
     return () => abort()
   }, [])
 
-useEffect=(() => {
-    if (error !== '') toast.error('Hubo un error')
+  useEffect(() => {
+    if (error !== '') toast.error(error)
   }, [error])
 
   if (loading) return <Loading />
@@ -46,6 +46,7 @@ useEffect=(() => {
           </div>
         ))}
       </div>
+      {error !== '' ? <p className='text-white'>{error}</p> : null}
     </section>
   )
 }
