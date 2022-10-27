@@ -3,10 +3,12 @@ import { useEffect, useState } from 'react'
 import Loading from './common/Loading'
 import Card from './common/Card'
 
+import { toast } from 'react-toastify'
+
 function Countries () {
   const [countries, setCountries] = useState([])
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [error, setError] = useState('')
   const { signal, abort } = new AbortController()
 
   const apiUrl = 'https://restcountries.com/v3.1/all'
@@ -29,11 +31,15 @@ function Countries () {
     return () => abort()
   }, [])
 
+useEffect=(() => {
+    if (error !== '') toast.error('Hubo un error')
+  }, [error])
+
   if (loading) return <Loading />
 
   return (
-    <section className='container'>
-      <div className='row'>
+    <section className='container py-5'>
+      <div className='row gy-4'>
         {countries.map((country, index) => (
           <div key={index} className='col-12 col-md-6 col-lg-3'>
             <Card {...country} />

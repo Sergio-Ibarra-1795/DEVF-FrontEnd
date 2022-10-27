@@ -1,0 +1,8 @@
+body {
+    background-color: gray;
+}
+
+.card-img-top {
+    height: 10rem;
+    object-fit:cover;
+}
