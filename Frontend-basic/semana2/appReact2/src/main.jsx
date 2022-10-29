@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.min.css'
 import './styles/index.css'
 import RoutingDocu from './components/Docs/RoutingDocu'
 import Menu from './components/common/Menu'
+import Layout from './components/common/Layout'
 /* components */
 // import Countries from './components/Countries'
 
@@ -17,7 +18,8 @@ createRoot(root).render(
   <>
     {/* <Countries /> */}
     <BrowserRouter>
-      <RoutingDocu />
+      <Layout />
+      {/* <RoutingDocu /> */}
       {/* <ToastContainer /> */}
     </BrowserRouter>
   </>
