@@ -1,4 +1,4 @@
-import Menu from './Menu'
+import Menu from './common/Menu'
 
 export default function Layout ({ children }) {
   return (

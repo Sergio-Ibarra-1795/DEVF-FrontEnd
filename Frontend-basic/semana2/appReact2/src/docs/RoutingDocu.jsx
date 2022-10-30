@@ -1,7 +1,6 @@
-import { Navigate, Route, Routes } from 'react-router-dom'
-import Layout from '../common/Layout'
-import Menu from '../common/Menu'
-import { RenderComp } from './RenderComp'
+import { Route, Routes, Navigate } from 'react-router-dom'
+import Layout from '../components/Layout'
+import { RenderComp } from './../components/common/RenderComp'
 
 export default function RoutingDocu () {
   return (
