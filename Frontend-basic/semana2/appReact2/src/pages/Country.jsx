@@ -12,7 +12,7 @@ export default function Country () {
 
   if (loading) return <Loading />
 
-  if (error !== '') {
+  if (error !== '' || country[0] === undefined) {
     return <Navigate to='/404' />
   }
 
